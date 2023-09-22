@@ -24,6 +24,7 @@ def test_query(hub_cloud_ds):
     assert len(dsv3) == 20
 
 
+@pytest.mark.slow
 @requires_libdeeplake
 def test_default_query_message(hub_cloud_ds_generator):
     with hub_cloud_ds_generator() as ds:
@@ -49,6 +50,7 @@ def test_default_query_message(hub_cloud_ds_generator):
     ds = hub_cloud_ds_generator()
     message = ds.get_view("test_2").message
     assert message == query_string[: QUERY_MESSAGE_MAX_SIZE - 3] + "..."
+
 
 
 @requires_libdeeplake

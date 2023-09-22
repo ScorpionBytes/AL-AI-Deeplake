@@ -1833,6 +1833,7 @@ def test_uuid_fix(local_path):
     assert vector_store.dataset.id.data()["value"] == list(map(str, ids))
 
 
+@pytest.mark.slow
 def test_read_only():
     db = VectorStore("hub://davitbun/twitter-algorithm")
     assert db.dataset.read_only == True
@@ -1843,6 +1844,7 @@ def test_delete_by_path_wrong_path():
         VectorStore.delete_by_path("some_path")
 
 
+@pytest.mark.slow
 @requires_libdeeplake
 def test_exec_option_with_auth(local_path, hub_cloud_path, hub_cloud_dev_token):
     db = VectorStore(path=local_path)
@@ -1868,6 +1870,7 @@ def test_exec_option_with_auth(local_path, hub_cloud_path, hub_cloud_dev_token):
     assert db.exec_option == "tensor_db"
 
 
+@pytest.mark.slow
 @requires_libdeeplake
 def test_exec_option_cli(
     local_path,
