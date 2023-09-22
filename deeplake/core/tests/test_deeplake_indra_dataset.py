@@ -12,6 +12,7 @@ import math
 import pytest
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_indexing(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
@@ -57,6 +58,7 @@ def test_indexing(local_auth_ds_generator):
     )
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_save_view(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
@@ -78,6 +80,7 @@ def test_save_view(local_auth_ds_generator):
     )
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_empty_token_exception(local_auth_ds):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
@@ -92,6 +95,7 @@ def test_empty_token_exception(local_auth_ds):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_load_view(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
 
@@ -144,6 +148,7 @@ def test_load_view(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_query(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
 
@@ -177,6 +182,7 @@ def test_query(local_auth_ds_generator):
         assert np.all(a == 2)
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_metadata(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
@@ -209,6 +215,7 @@ def test_metadata(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_accessing_data(local_auth_ds_generator):
     from deeplake.enterprise.convert_to_libdeeplake import dataset_to_libdeeplake
 
@@ -227,6 +234,7 @@ def test_accessing_data(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_sequences_accessing_data(local_auth_ds_generator):
     deeplake_ds = local_auth_ds_generator()
     with deeplake_ds:
@@ -255,6 +263,7 @@ def test_sequences_accessing_data(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_query_tensors_polygon_htype_consistency(local_auth_ds_generator):
     ds = local_auth_ds_generator()
     with ds:
@@ -293,6 +302,7 @@ def test_query_tensors_polygon_htype_consistency(local_auth_ds_generator):
             assert np.all(i == j)
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_random_split_with_seed(local_auth_ds_generator):
     deeplake_ds = local_auth_ds_generator()
@@ -329,6 +339,7 @@ def test_random_split_with_seed(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_random_split(local_auth_ds_generator):
     deeplake_ds = local_auth_ds_generator()
     with deeplake_ds:
@@ -373,6 +384,7 @@ def test_random_split(local_auth_ds_generator):
 
 
 @requires_libdeeplake
+@pytest.mark.flaky
 def test_virtual_tensors(local_auth_ds_generator):
     deeplake_ds = local_auth_ds_generator()
     with deeplake_ds:
