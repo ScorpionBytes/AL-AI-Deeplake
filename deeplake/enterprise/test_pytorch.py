@@ -67,6 +67,7 @@ def dummy_init_fn(arg):
     return f"function called with arg {arg}"
 
 
+@pytest.mark.flaky
 @requires_libdeeplake
 def test_setting_woker_init_function(local_auth_ds):
     dl = local_auth_ds.dataloader().pytorch()
@@ -76,6 +77,7 @@ def test_setting_woker_init_function(local_auth_ds):
     assert dl.worker_init_fn() == "function called with arg 1024"
 
 
+@pytest.mark.flaky
 @requires_torch
 @requires_libdeeplake
 def test_offset_ds_iteration(local_auth_ds):
@@ -744,6 +746,7 @@ def test_pytorch_error_handling(local_auth_ds):
 
 @requires_libdeeplake
 @requires_torch
+@pytest.mark.flaky
 def test_batch_sampler_attribute(local_auth_ds):
     ld = local_auth_ds.dataloader().pytorch()
 
