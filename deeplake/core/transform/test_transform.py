@@ -1760,6 +1760,7 @@ def test_transform_summary(local_ds, capsys):
     assert captured.out == ""
 
 
+@pytest.mark.slow
 def test_transform_extend(local_ds):
     # skip_ok is not supported with extend
     @deeplake.compute
