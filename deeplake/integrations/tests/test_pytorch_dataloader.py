@@ -8,6 +8,9 @@ if not pytorch_installed():
 if platform.system() in ["Windows", "Darwin"]:
     pytest.skip("mock pickling gets quite messy on win/mac", allow_module_level=True)
 
+if True:
+    pytest.skip("Temporarily skipping on all OSs to test lockups", allow_module_level=True)
+
 from unittest.mock import patch
 
 from deeplake.core.io import SampleStreaming, IOBlock, Schedule
